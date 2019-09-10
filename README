@@ -1,0 +1,46 @@
+Appendix B 
+
+How to running the software in the project
+
+This software provided the Live demo and Simulation by using Kinect XBox 360 tele-control Baxter robot.
+
+The hardware reqirement of this Project is: Kinect Xbox 360 and Baxter should be link on the workstation via ethernet cable.
+
+
+In the main workspace baxter_ws contained: Baxter SDK, full ROS dependency of head files.
+
+In Live Demo,before running this command, adjust the documentation baxter_ws/baxter.sh in:
+
+1. set the baxter_hostname: 011311P0010.local this is the hostname of the Baxter robot in LAB.
+
+2. the hoostname of your workstation: my computer hostname is: lsc-ThinkPad-T430u.local
+
+3. the ROS version set as: indigo
+
+4. ping the robot.
+
+5. set the MAC code in the Baxter for the workstation in order to make it work. For my computer, MAC code is 08-9E-01-79-00-EB.
+
+$ roscore
+
+$ cd ~/baxter_ws
+$ baxter.sh
+$ roslaunch baxter_gazebo baxter_world.launch
+
+$ cd ~/baxter_ws
+$ baxter.sh
+$ rosrun baxter_tools enable_robot.py -e
+$ roslaunch baxter_teleop baxter_teleop.launch
+
+In Simulation in Gazebo, we should only do 1.2.3steps and linking the Kinect.
+
+$ roscore
+
+$ cd ~/baxter_ws
+$ baxter.sh sim
+$ roslaunch baxter_gazebo baxter_world.launch
+
+$ cd ~/baxter_ws
+$ baxter.sh sim
+$ rosrun baxter_tools enable_robot.py -e
+$ roslaunch baxter_teleop baxter_teleop.launch
